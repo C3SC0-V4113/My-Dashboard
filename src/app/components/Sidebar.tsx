@@ -22,9 +22,7 @@ export const Sidebar = () => {
           <span>
             <Image
               className="rounded-full"
-              src={
-                "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80"
-              }
+              src={"https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"}
               alt={"profile-pic"}
               width={32}
               height={32}
