@@ -22,14 +22,18 @@ export default async function PokemonsPage() {
   return (
     <div className="flex flex-col">
       <div className="flex flex-wrap gap-10 items-center justify-center">
-        <Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${10}.png`}
-          alt={`Pokemon ${10}`}
-          width={100}
-          height={100}
-        />
+        {pokemons.map(({ id, name }) => (
+          <div className="flex flex-col" key={id}>
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+              alt={`Pokemon ${id}`}
+              width={100}
+              height={100}
+            />
+            <p>{name}</p>
+          </div>
+        ))}
       </div>
-      {JSON.stringify(pokemons)}
     </div>
   );
 }
