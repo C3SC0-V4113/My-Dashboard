@@ -5,6 +5,7 @@ import {
   IoCalculatorOutline,
   IoLogoReact,
 } from "react-icons/io5";
+import { MdCatchingPokemon } from "react-icons/md";
 import { SideBarItem } from "./SideBarItem";
 
 const menuItems = [
@@ -19,6 +20,12 @@ const menuItems = [
     icon: <IoCalculatorOutline size={24} />,
     title: "Calculator",
     subtitle: "Contador Client Side",
+  },
+  {
+    path: "/dashboard/pokemons",
+    icon: <MdCatchingPokemon size={24} />,
+    title: "Pokemons",
+    subtitle: "Generación Estática",
   },
 ];
 
