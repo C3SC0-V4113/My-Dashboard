@@ -13,6 +13,8 @@ const getPokemons = async (
     name: pokemon.name,
   }));
 
+  // throw new Error("Error que no deberia pasar");
+
   return pokemons;
 };
 
