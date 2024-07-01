@@ -7,6 +7,18 @@ interface Props {
   params: { id: string };
 }
 
+const lenghtStaticPokémons = 151;
+
+export async function generateStaticParams() {
+  const staticPokemons = Array.from({ length: lenghtStaticPokémons }).map(
+    (v, i) => i + 1
+  );
+
+  return staticPokemons.map((id) => ({
+    id,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { id, name } = await getPokemon(params.id);
@@ -24,7 +36,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const getPokemon = async (id: string): Promise<Pokemon> => {
   const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    cache: "force-cache",
+    // cache: "force-cache",
+    next: {
+      revalidate: 60 * 60 * 30 * 6,
+    },
   })
     .then((resp) => resp.json())
     .catch(() => notFound());
