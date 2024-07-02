@@ -3,6 +3,7 @@ import React from "react";
 import {
   IoBrowsersOutline,
   IoCalculatorOutline,
+  IoHeartOutline,
   IoLogoReact,
 } from "react-icons/io5";
 import { MdCatchingPokemon } from "react-icons/md";
@@ -26,6 +27,12 @@ const menuItems = [
     icon: <MdCatchingPokemon size={24} />,
     title: "Pokemons",
     subtitle: "Generación Estática",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoHeartOutline size={24} />,
+    title: "Favoritos",
+    subtitle: "Favoritos por Estado Global",
   },
 ];
 
