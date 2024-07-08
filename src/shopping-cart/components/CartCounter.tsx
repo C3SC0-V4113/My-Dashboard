@@ -1,6 +1,11 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { addOne, substractOne } from "@/store/counter/counterSlice";
+import {
+  addOne,
+  initCounterState,
+  substractOne,
+} from "@/store/counter/counterSlice";
+import { useEffect } from "react";
 // import { useState } from "react";
 
 interface Props {
@@ -12,6 +17,11 @@ export const CartCounter = ({ value = 0 }: Props) => {
 
   const { count } = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(initCounterState(value));
+  }, [dispatch, value]);
+
   return (
     <>
       <span className="text-9xl">{count}</span>
