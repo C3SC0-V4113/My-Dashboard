@@ -1,5 +1,5 @@
 "use client";
-import { IoCafeOutline } from "react-icons/io5";
+import { IoCartOutline } from "react-icons/io5";
 import { SimpleWidget } from "./SimpleWidget";
 import { useAppSelector } from "@/hooks";
 
@@ -10,9 +10,9 @@ export const WidgetsGrid = () => {
       <SimpleWidget
         label="Counter"
         title={count}
-        subTitle="Productos en el carrito"
+        subTitle="Productos agregados"
         href="/dashboard/counter"
-        icon={<IoCafeOutline size={50} className="text-blue-500" />}
+        icon={<IoCartOutline size={50} className="text-blue-500" />}
       />
     </div>
   );
