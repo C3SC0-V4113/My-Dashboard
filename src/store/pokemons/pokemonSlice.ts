@@ -1,11 +1,13 @@
 import { SimplePokemon } from "@/pokemons";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface PokemonsState {
+export interface PokemonsState {
   [key: string]: SimplePokemon;
 }
 
 const getInitialState = (): PokemonsState => {
+  // if (typeof localStorage === "undefined") return {};
+
   const favorites = JSON.parse(
     localStorage.getItem("favorite-pokemons") ?? "{}"
   );

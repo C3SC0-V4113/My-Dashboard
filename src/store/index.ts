@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Middleware } from "@reduxjs/toolkit";
 import counterReducer from "./counter/counterSlice";
 import pokemonReducer from "./pokemons/pokemonSlice";
 import { localStorageMiddleware } from "./middlewares/localStorage-middleware";
@@ -10,7 +10,7 @@ export const store = () => {
       pokemons: pokemonReducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(localStorageMiddleware),
+      getDefaultMiddleware().concat(localStorageMiddleware as Middleware),
   });
 };
 
