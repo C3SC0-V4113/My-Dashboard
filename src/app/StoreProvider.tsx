@@ -1,6 +1,7 @@
 "use client";
 import { AppStore, store } from "@/store";
-import { useRef } from "react";
+import { setFavoritePokemons } from "@/store/pokemons/pokemonSlice";
+import { useEffect, useRef } from "react";
 import { Provider } from "react-redux";
 
 export default function StoreProvider({
@@ -9,6 +10,15 @@ export default function StoreProvider({
   children: React.ReactNode;
 }) {
   const storeRef = useRef<AppStore | null>(null);
+
+  useEffect(() => {
+    const favorites = JSON.parse(
+      localStorage.getItem("favorite-pokemons") ?? "{}"
+    );
+
+    storeRef.current!.dispatch(setFavoritePokemons(favorites));
+  }, []);
+
   if (!storeRef.current) {
     storeRef.current = store();
   }
